@@ -3,6 +3,8 @@ import Home from './Screen/Home';
 import Signup from './Screen/Signup'
 import Login from './Screen/Login'
 import AddCourse from "./Screen/AddCourse"
+import Generator from './Screen/Generator';
+// import Scanner from "./Screen/Scanner"
 function App() {
   return (
     <div className="App">
@@ -12,6 +14,8 @@ function App() {
         <Route exact path='/signup' element = {<Signup/>}/>
         <Route exact path='/login' element = {<Login/>}/>
         <Route exact path='/addCourse' element = {<AddCourse/>}/>
+        <Route exact path='/generator' element = {<Generator/>}/>
+        
 
         </Routes>
       </Router>

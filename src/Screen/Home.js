@@ -1,35 +1,22 @@
-import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
-import {auth} from '../firebase'
-import { signOut } from 'firebase/auth'
-import { useNavigate } from 'react-router-dom'
+import React from 'react';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+
+
+
+const bgImageStyle = {
+  backgroundSize: 'cover',
+  backgroundPosition: 'center',
+  height: '100vh',
+  backgroundImage: 'url(./image.png)',
+};
+
 export default function Home() {
-  const navigate = useNavigate()
-  const [uid,setUid] = useState("")
-  useEffect(()=>{
-    setUid(localStorage.getItem('uid'));
-  },[uid])
-  
-  const handleLogout = () =>{
-      signOut(auth)
-        .then(() => {
-          localStorage.removeItem('uid');
-          navigate('/login');
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-  
-  }
+ 
   return (
-    <div>
-      {uid?<><button onClick={handleLogout}>logout</button>
-      <Link to = "/addcourse">Add course</Link></>:<>
-        <Link to="/signup">Signup</Link>
-        <Link to="/login">Login</Link></>
-
-}
-
+    <div style={bgImageStyle}>
+      <Header/>
+      <Footer/>
     </div>
-  )
+  );
 }

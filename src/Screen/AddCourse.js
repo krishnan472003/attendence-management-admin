@@ -6,22 +6,30 @@ import Button from '@mui/joy/Button';
 import { useState } from 'react';
 import {db} from "../firebase"
 import { doc, setDoc } from "firebase/firestore"; 
-
+import { useNavigate } from 'react-router-dom';
 export default function AddCourse() {
+  const navigate = useNavigate()
     const [course,setCourse] = useState("");
     const [startingNo,setStartingNo] = useState(0)
     const [endingNo,setEndingNo] = useState(0)
 
   const handleSubmit = async() =>{
-      console.log("hello")
+    await setDoc(doc(db, course, "details"), {
+      startingNo: startingNo,
+      endingNo: endingNo,
+      totalAttendence: 0
+      
+    })
       for(let i = startingNo ; i <= endingNo;i++){
         
 // Add a new document in collection "cities"
 await setDoc(doc(db, course,i.toString() ), {
-    name: 0
+    attendence: 0,
+    flag: true
+    
   })
     }
-    console.log("hello")
+    navigate("/")
 
 
   }

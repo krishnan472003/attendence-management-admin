@@ -12,8 +12,8 @@ import {createUserWithEmailAndPassword } from "firebase/auth";
 import { useState, } from 'react';
 import {auth} from "../firebase"
 import { useNavigate } from 'react-router-dom';
-
-
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 export default function Signup() {
     const navigate = useNavigate()
@@ -45,6 +45,7 @@ createUserWithEmailAndPassword(auth, email, password)
    
     <CssVarsProvider>
     <main>
+      <Header/>
       <Sheet
         sx={{
           width: 300,
@@ -99,6 +100,7 @@ createUserWithEmailAndPassword(auth, email, password)
          <RLink to = '/login'>Already have an account?</RLink>
         </Typography>
       </Sheet>
+      <Footer/>
     </main>
   </CssVarsProvider>
   );

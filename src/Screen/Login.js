@@ -12,6 +12,8 @@ import { useState } from 'react';
 import { signInWithEmailAndPassword } from "firebase/auth";
 import {auth} from "../firebase"
 import { useNavigate } from 'react-router-dom';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 export default function Signup() {
     const navigate = useNavigate()
@@ -42,6 +44,7 @@ export default function Signup() {
    
     <CssVarsProvider>
     <main>
+      <Header/>
       <Sheet
         sx={{
           width: 300,
@@ -64,11 +67,11 @@ export default function Signup() {
         </div>
         <div>
           <Typography level="h3" component="h1">
-            <b>Welcome Students!</b>
+            <b>Welcome Admins!</b>
           </Typography>
         </div>
         <FormControl>
-          <FormLabel>Student Email</FormLabel>
+          <FormLabel>Admin Email</FormLabel>
           <Input
             // html input attribute
             name="email"
@@ -79,7 +82,7 @@ export default function Signup() {
           />
         </FormControl>
         <FormControl>
-          <FormLabel>Student Password</FormLabel>
+          <FormLabel>Admin Password</FormLabel>
           <Input
             // html input attribute
             name="password"
@@ -105,6 +108,7 @@ export default function Signup() {
         </RLink>
         </Typography>
       </Sheet>
+      <Footer/>
     </main>
   </CssVarsProvider>
   );
